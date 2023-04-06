@@ -13,25 +13,32 @@ import org.jetbrains.annotations.NotNull;
 @Entity
 @Table(name = "endereco")
 public class Endereco {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", insertable = false, updatable = false, unique = true, nullable = false)
+    @Column(name = "id")
     private Long id;
+
     @NotNull
     @Column(name = "logradouro")
     private String logradouro;
+
     @NotNull
     @Column(name = "cep")
     private String cep;
+
     @Column(name = "numero")
     private Integer numero;
+
     @NotNull
     @Column(name = "cidade")
     private String cidade;
+
     @NotNull
     @Column(name = "principal")
     private Boolean principal;
-    @ManyToOne(fetch = FetchType.EAGER)
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
