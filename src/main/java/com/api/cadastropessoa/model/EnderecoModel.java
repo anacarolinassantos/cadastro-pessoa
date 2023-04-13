@@ -1,6 +1,5 @@
 package com.api.cadastropessoa.model;
 
-
 import com.api.cadastropessoa.entity.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,12 +11,20 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class EnderecoModel {
+
     private Long id;
+
     private String logradouro;
+
     private String cep;
+
     private Integer numero;
+
     private String cidade;
+
     private Boolean principal;
+
+    private PessoaModel pessoaModel;
 
     public EnderecoModel(Endereco endereco) {
         this.id = endereco.getId();

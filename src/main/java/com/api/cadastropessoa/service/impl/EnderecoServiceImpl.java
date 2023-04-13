@@ -12,20 +12,9 @@ import java.util.List;
 
 @Service
 public class EnderecoServiceImpl implements EnderecoService {
+
     @Autowired
     private EnderecoRepository enderecoRepository;
-//    @Autowired
-//    private PessoaRepository pessoaRepository;
-//    @Autowired
-//    private PessoaService pessoaService;
-
-//    @Override
-//    public EnderecoModel enderecoPrincipal(Long pessoaId) {
-//        PessoaModel pessoa = pessoaService.consultarPorId(pessoaId);
-//        List<Endereco> enderecos = pessoa.getEndereco();
-////        EnderecoModel endereco = enderecos.stream().filter(end -> Objects.equals(end.meuEndereco(),true)).findFirst()
-//        return null;
-//    }
 
     @Override
     public List<EnderecoModel> consultar() {
@@ -35,6 +24,10 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Override
     public EnderecoModel consultarPorId(Long id) {
         return new EnderecoModel(this.buscarId(id));
+    }
+
+    public List<EnderecoModel> consultarEndPrincipal(Boolean principal) {
+        return enderecoRepository.findByEnderecoPrincipal(principal);
     }
 
     @Override

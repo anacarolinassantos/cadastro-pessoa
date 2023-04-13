@@ -1,6 +1,5 @@
 package com.api.cadastropessoa.model;
 
-import com.api.cadastropessoa.entity.Endereco;
 import com.api.cadastropessoa.entity.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +15,13 @@ import java.util.stream.Collectors;
 @Getter
 @NoArgsConstructor
 public class PessoaModel {
+
     private Long id;
+
     private String nome;
+
     private LocalDate dataNascimento;
+
     private List<EnderecoModel> endereco;
 
     public PessoaModel(Pessoa pessoa) {

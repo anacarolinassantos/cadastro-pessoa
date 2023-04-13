@@ -1,7 +1,6 @@
 package com.api.cadastropessoa.service;
 
 import com.api.cadastropessoa.model.PessoaModel;
-
 import java.util.List;
 
 public interface PessoaService {
@@ -15,5 +14,4 @@ public interface PessoaService {
     PessoaModel alterar(PessoaModel model);
 
     void excluir(Long id);
-
 }

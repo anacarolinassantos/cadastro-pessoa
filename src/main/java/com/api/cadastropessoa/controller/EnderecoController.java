@@ -24,6 +24,11 @@ public class EnderecoController {
         return enderecoService.consultarPorId(id);
     }
 
+    @GetMapping("/consultarEndPrincipal/{principal}")
+    public List<EnderecoModel> consultarPorEnderecoPrincipal(@PathVariable Boolean principal) {
+        return enderecoService.consultarEndPrincipal(principal);
+    }
+
     @PostMapping("/cadastrar")
     public EnderecoModel cadastrar(@RequestBody EnderecoModel model) {
         return enderecoService.cadastrar(model);

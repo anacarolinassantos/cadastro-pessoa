@@ -13,11 +13,9 @@ import java.util.List;
 
 @Service
 public class PessoaServiceImpl implements PessoaService {
-    @Autowired
-    private PessoaRepository pessoaRepository;
 
     @Autowired
-    private EnderecoService enderecoService;
+    private PessoaRepository pessoaRepository;
 
     @Override
     public PessoaModel consultarPorId(Long id) {
@@ -34,13 +32,6 @@ public class PessoaServiceImpl implements PessoaService {
         var pessoa = new Pessoa(model);
         return new PessoaModel(pessoaRepository.save(pessoa));
     }
-//    @Override
-//    public PessoaModel cadastrar(PessoaModel model) {
-//        EnderecoModel endereco = enderecoService.consultarPorId(model.getId());
-//        var pessoa = new Pessoa(model,endereco);
-//        return new PessoaModel(pessoaRepository.save(pessoa));
-//    }
-
 
     @Override
     public PessoaModel alterar(PessoaModel model) {

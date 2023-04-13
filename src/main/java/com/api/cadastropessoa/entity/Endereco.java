@@ -29,7 +29,6 @@ public class Endereco {
 
     @Column(name = "numero")
     private Integer numero;
-
     @NotNull
     @Column(name = "cidade")
     private String cidade;
@@ -49,7 +48,6 @@ public class Endereco {
         this.cidade = model.getCidade();
         this.principal = model.getPrincipal();
     }
-
     public Endereco editar(EnderecoModel model) {
         this.logradouro = model.getLogradouro();
         this.cep = model.getCep();

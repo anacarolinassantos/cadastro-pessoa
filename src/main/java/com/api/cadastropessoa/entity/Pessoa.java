@@ -33,7 +33,7 @@ public class Pessoa {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Endereco> enderecos;
 
     public Pessoa(PessoaModel model) {
@@ -41,7 +41,6 @@ public class Pessoa {
         this.dataNascimento = model.getDataNascimento();
         this.enderecos = model.getEndereco().stream().map(Endereco::new).collect(Collectors.toList());
     }
-
     public Pessoa editar(PessoaModel model) {
         this.id = model.getId();
         this.nome = model.getNome().trim();
